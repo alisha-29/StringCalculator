@@ -5,11 +5,19 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        // Split the string by commas
+        if (numbers.startsWith("//")) {
+            String delimiter = numbers.substring(2, numbers.indexOf("\n"));
+            numbers = numbers.substring(numbers.indexOf("\n") + 1);
+            String[] parts = numbers.split(delimiter);
+            int sum = 0;
+            for (String part : parts) {
+                sum += Integer.parseInt(part);
+            }
+            return sum;
+        }
         String[] parts = numbers.split("[,\n]");
         int sum = 0;
         for (String part : parts) {
-            // Convert each part to an integer and add to sum
             sum += Integer.parseInt(part);
         }
         return sum;
