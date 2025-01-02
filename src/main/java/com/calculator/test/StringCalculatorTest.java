@@ -142,4 +142,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(0, calculator.add("//;\n"));
     }
+
+    @Test
+    public void testCustomDelimiterWithLongNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(123, calculator.add("//;\n10;20;30;63"));
+    }
 }
