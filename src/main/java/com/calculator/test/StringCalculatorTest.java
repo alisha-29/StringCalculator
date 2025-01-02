@@ -154,4 +154,11 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(Integer.MAX_VALUE, calculator.add(String.valueOf(Integer.MAX_VALUE)));
     }
+
+    @Test
+    public void testLargeNumberWithCustomDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(10005, calculator.add("//;\n10000;5"));
+    }
+
 }
