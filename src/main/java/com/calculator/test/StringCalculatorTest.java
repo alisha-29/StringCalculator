@@ -103,4 +103,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(1000, calculator.add("1000"));
     }
+
+    @Test
+    public void testEmptyAfterDelimiterLine() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(0, calculator.add("//;\n"));
+    }
 }
