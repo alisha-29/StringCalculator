@@ -136,4 +136,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(0, calculator.add("//;\n"));
     }
+
+    @Test
+    public void testEmptyStringAfterDelimiterLine() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(0, calculator.add("//;\n"));
+    }
 }
