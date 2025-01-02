@@ -65,4 +65,14 @@ public class StringCalculatorTest {
         assertEquals(10, calculator.add("//;\n1;2;3;4"));
     }
 
+    @Test
+    public void testNegativeNumbersMultiple() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.add("-1,-5,-6");
+        });
+        assertEquals("Negative numbers not allowed: -1,-5,-6", exception.getMessage());
+    }
+
+
 }
