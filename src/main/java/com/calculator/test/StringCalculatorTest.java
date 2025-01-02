@@ -148,4 +148,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(123, calculator.add("//;\n10;20;30;63"));
     }
+
+    @Test
+    public void testNumberLargerThanMaxInt() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(Integer.MAX_VALUE, calculator.add(String.valueOf(Integer.MAX_VALUE)));
+    }
 }
