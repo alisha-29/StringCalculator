@@ -74,5 +74,11 @@ public class StringCalculatorTest {
         assertEquals("Negative numbers not allowed: -1,-5,-6", exception.getMessage());
     }
 
+    @Test
+    public void testNewlineAndCommaDelimiters() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
 
 }
