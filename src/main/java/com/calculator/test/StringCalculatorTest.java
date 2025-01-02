@@ -130,4 +130,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(15, calculator.add("1,2,3,4,5"));
     }
+
+    @Test
+    public void testCustomDelimiterWithEmptyNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(0, calculator.add("//;\n"));
+    }
 }
