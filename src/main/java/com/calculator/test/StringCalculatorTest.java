@@ -161,4 +161,17 @@ public class StringCalculatorTest {
         assertEquals(10005, calculator.add("//;\n10000;5"));
     }
 
+/*    @Test
+    public void testMultipleLinesWithCustomDelimiters() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(30, calculator.add("//;\n1;2\n3;4\n5;6"));
+    }*/
+
+    @Test
+    public void testVeryLargeInput() {
+        StringCalculator calculator = new StringCalculator();
+        String input = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20";
+        assertEquals(210, calculator.add(input));
+    }
+
 }
