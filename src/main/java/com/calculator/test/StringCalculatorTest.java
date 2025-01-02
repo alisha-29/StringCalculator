@@ -80,5 +80,10 @@ public class StringCalculatorTest {
         assertEquals(6, calculator.add("1\n2,3"));
     }
 
+    @Test
+    public void testCustomDelimiterWithDifferentCharacters() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(10, calculator.add("//[***]\n1***2***3***4"));
+    }
 
 }
