@@ -5,38 +5,36 @@ public class StringCalculator {
         if (numbers.isEmpty()) {
             return 0;
         }
-        StringBuilder negativeNumbers = new StringBuilder();
+
+        String delimiterPattern = "[,\n]";
         if (numbers.startsWith("//")) {
-            String delimiter = numbers.substring(2, numbers.indexOf("\n"));
-            numbers = numbers.substring(numbers.indexOf("\n") + 1);
-            String[] parts = numbers.split(delimiter);
-            int sum = 0;
-            for (String part : parts) {
-                int num = Integer.parseInt(part);
-                if (num < 0) {
-                    negativeNumbers.append(part).append(",");
-                } else {
-                    sum += num;
-                }
-            }
-            if (negativeNumbers.length() > 0) {
-                throw new IllegalArgumentException("Negative numbers not allowed: " + negativeNumbers.substring(0, negativeNumbers.length() - 1));
-            }
-            return sum;
+            int delimiterEndIndex = numbers.indexOf("\n");
+            String delimiter = numbers.substring(2, delimiterEndIndex);
+            delimiterPattern = delimiter;
+            numbers = numbers.substring(delimiterEndIndex + 1);
         }
-        String[] parts = numbers.split("[,\n]");
+
+        String[] tokens = numbers.split(delimiterPattern);
         int sum = 0;
-        for (String part : parts) {
-            int num = Integer.parseInt(part);
+        StringBuilder negativeNumbers = new StringBuilder();
+
+        for (String token : tokens) {
+            int num = Integer.parseInt(token);
             if (num < 0) {
-                negativeNumbers.append(part).append(",");
+                if (negativeNumbers.length() > 0) {
+                    negativeNumbers.append(",");
+                }
+                negativeNumbers.append(num);
             } else {
                 sum += num;
             }
         }
+
         if (negativeNumbers.length() > 0) {
-            throw new IllegalArgumentException("Negative numbers not allowed: " + negativeNumbers.substring(0, negativeNumbers.length() - 1));
+            throw new IllegalArgumentException("Negative numbers not allowed: " + negativeNumbers.toString());
         }
+
         return sum;
     }
 }
+
