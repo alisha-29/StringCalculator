@@ -180,4 +180,25 @@ public class StringCalculatorTest {
         assertEquals(10001, calculator.add("//;\n5000;5001"));
     }
 
+/*    @Test
+    public void testSpacesBetweenNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1 2 3"));
+    }*/
+
+   /* @Test
+    public void testNumbersWithSpacesAndNewlines() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2 3"));
+    }
+*/
+
+    @Test
+    public void testMultipleNegativeNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.add("1,-2,-3,-4");
+        });
+        assertEquals("Negative numbers not allowed: -2,-3,-4", exception.getMessage());
+    }
 }
