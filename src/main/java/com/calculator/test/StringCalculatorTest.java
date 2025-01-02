@@ -161,12 +161,6 @@ public class StringCalculatorTest {
         assertEquals(10005, calculator.add("//;\n10000;5"));
     }
 
-/*    @Test
-    public void testMultipleLinesWithCustomDelimiters() {
-        StringCalculator calculator = new StringCalculator();
-        assertEquals(30, calculator.add("//;\n1;2\n3;4\n5;6"));
-    }*/
-
     @Test
     public void testVeryLargeInput() {
         StringCalculator calculator = new StringCalculator();
@@ -180,18 +174,11 @@ public class StringCalculatorTest {
         assertEquals(10001, calculator.add("//;\n5000;5001"));
     }
 
-/*    @Test
+    @Test
     public void testSpacesBetweenNumbers() {
         StringCalculator calculator = new StringCalculator();
         assertEquals(6, calculator.add("1 2 3"));
-    }*/
-
-   /* @Test
-    public void testNumbersWithSpacesAndNewlines() {
-        StringCalculator calculator = new StringCalculator();
-        assertEquals(6, calculator.add("1\n2 3"));
     }
-*/
 
     @Test
     public void testMultipleNegativeNumbers() {

@@ -6,7 +6,7 @@ public class StringCalculator {
             return 0;
         }
 
-        String delimiterPattern = "[,\n]"; // Default delimiter is comma or newline.
+        String delimiterPattern = "[,\n ]"; // Default delimiter is comma or newline.
 
         // Check for custom delimiter
         if (numbers.startsWith("//")) {
