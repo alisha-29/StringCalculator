@@ -18,10 +18,17 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(1, calculator.add("1"));
     }
-    
+
     @Test
     public void testTwoNumbers() {
         StringCalculator calculator = new StringCalculator();
         assertEquals(6, calculator.add("1,5"));
     }
+
+    @Test
+    public void testNewLineDelimiter() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
 }

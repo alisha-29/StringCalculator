@@ -6,7 +6,7 @@ public class StringCalculator {
             return 0;
         }
         // Split the string by commas
-        String[] parts = numbers.split(",");
+        String[] parts = numbers.split("[,\n]");
         int sum = 0;
         for (String part : parts) {
             // Convert each part to an integer and add to sum
