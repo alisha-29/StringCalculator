@@ -97,4 +97,10 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(15, calculator.add("//;\n1;2\n3;4\n5"));
     }
+
+    @Test
+    public void testSingleLargeNumber() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1000, calculator.add("1000"));
+    }
 }
