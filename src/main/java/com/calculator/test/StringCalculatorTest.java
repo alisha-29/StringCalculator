@@ -181,6 +181,12 @@ public class StringCalculatorTest {
     }
 
     @Test
+    public void testNumbersWithSpacesAndNewlines() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2 3"));
+    }
+    
+    @Test
     public void testMultipleNegativeNumbers() {
         StringCalculator calculator = new StringCalculator();
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
