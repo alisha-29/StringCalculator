@@ -6,27 +6,33 @@ public class StringCalculator {
             return 0;
         }
 
-        String delimiterPattern = "[,\n]";
+        String delimiterPattern = "[,\n]"; // Default delimiter is comma or newline.
+
+        // Check for custom delimiter
         if (numbers.startsWith("//")) {
             int delimiterEndIndex = numbers.indexOf("\n");
-            String delimiter = numbers.substring(2, delimiterEndIndex);
-            delimiterPattern = delimiter;
-            numbers = numbers.substring(delimiterEndIndex + 1);
+            String delimiter = numbers.substring(2, delimiterEndIndex); // Custom delimiter
+            delimiterPattern = "[\n" + delimiter + "]"; // Make the delimiter pattern to handle custom delimiters and newlines
+            numbers = numbers.substring(delimiterEndIndex + 1); // Remaining numbers after delimiter
         }
 
+        // Split numbers by the delimiter pattern
         String[] tokens = numbers.split(delimiterPattern);
         int sum = 0;
         StringBuilder negativeNumbers = new StringBuilder();
 
         for (String token : tokens) {
-            int num = Integer.parseInt(token);
-            if (num < 0) {
-                if (negativeNumbers.length() > 0) {
-                    negativeNumbers.append(",");
+            token = token.trim(); // Remove any leading/trailing spaces
+            if (!token.isEmpty()) { // Prevent empty tokens
+                int num = Integer.parseInt(token); // Parse number
+                if (num < 0) {
+                    if (negativeNumbers.length() > 0) {
+                        negativeNumbers.append(",");
+                    }
+                    negativeNumbers.append(num);
+                } else {
+                    sum += num;
                 }
-                negativeNumbers.append(num);
-            } else {
-                sum += num;
             }
         }
 
@@ -37,4 +43,3 @@ public class StringCalculator {
         return sum;
     }
 }
-

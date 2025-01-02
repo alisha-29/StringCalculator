@@ -3,7 +3,6 @@ package com.calculator.test;
 import com.calculator.StringCalculator;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -60,5 +59,10 @@ public class StringCalculatorTest {
         assertEquals(6, calculator.add("//;\n1;2\n3"));
     }
 
+    @Test
+    public void testCustomDelimiterWithMultipleNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(10, calculator.add("//;\n1;2;3;4"));
+    }
 
 }
