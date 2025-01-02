@@ -118,4 +118,11 @@ public class StringCalculatorTest {
         });
         assertEquals("Negative numbers not allowed: -1", exception.getMessage());
     }
+
+    @Test
+    public void testDelimitersWithSpecialCharacters() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(10, calculator.add("//[$]\n1$2$3$4"));
+    }
+
 }
