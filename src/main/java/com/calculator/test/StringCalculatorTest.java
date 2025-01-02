@@ -174,4 +174,10 @@ public class StringCalculatorTest {
         assertEquals(210, calculator.add(input));
     }
 
+    @Test
+    public void testCustomDelimiterWithLargeNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(10001, calculator.add("//;\n5000;5001"));
+    }
+
 }
