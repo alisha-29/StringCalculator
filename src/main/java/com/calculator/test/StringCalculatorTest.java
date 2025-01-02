@@ -109,4 +109,13 @@ public class StringCalculatorTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(0, calculator.add("//;\n"));
     }
+
+    @Test
+    public void testSingleNegativeNumber() {
+        StringCalculator calculator = new StringCalculator();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.add("-1");
+        });
+        assertEquals("Negative numbers not allowed: -1", exception.getMessage());
+    }
 }
