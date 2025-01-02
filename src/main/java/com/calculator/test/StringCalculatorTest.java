@@ -49,4 +49,10 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void testMultipleNumbers() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(15, calculator.add("1,2,3,4,5"));
+    }
+
 }
